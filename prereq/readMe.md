@@ -47,6 +47,21 @@ use your favorite terminal base text editor.
 vim helloFromTerminal.c
 
 ```
-Even if you dont have the file already in place your text editor command creates a new file for you.
+Even if you don't have the file already in place your text editor command creates a new file for you.
 
 if you want to create a empty file you can use `touch <fileName>.<extension>` command.
+
+
+```c
+#include <stdio.h>
+
+int main() {
+    printf("Hello, Terminal!\n");
+    return 0;
+}
+
+```
+
+In vim you do  Ctrl + X or esc to switch normal mode then use `:wq` command to  save and exit or you can `:q` to quit or `:!q` discard changes and quit. in nano  Ctrl + X, then Y, and Enter to save and close the file.
+
+
