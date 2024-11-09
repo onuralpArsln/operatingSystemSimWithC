@@ -64,4 +64,16 @@ int main() {
 
 In vim you do  Ctrl + X or esc to switch normal mode then use `:wq` command to  save and exit or you can `:q` to quit or `:!q` discard changes and quit. in nano  Ctrl + X, then Y, and Enter to save and close the file.
 
+# Compile and run
 
+```bash 
+
+gcc helloFromTerminal.c -o hello
+```
+
+-o stands for output file after what you type that will be name of the output compiled file. Then you can call the compiled file to run.
+
+```bash
+./hello
+
+```
