@@ -77,3 +77,17 @@ gcc helloFromTerminal.c -o hello
 ./hello
 
 ```
+
+# Peek to your code
+
+Lets say you want to read insides of your file without opening it, you can use `cat` command to use c++ analyze tool  
+
+```bash
+cat helloFromTerminal.c
+ ```
+
+
+
+# General C knowledge
+
+The file library.c is a general tutorial about c lang 
