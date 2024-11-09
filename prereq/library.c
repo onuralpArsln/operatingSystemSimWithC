@@ -18,7 +18,7 @@ struct Book {
 // imzaya bakarak compile zamanında denetlemeyi kolaylaştırır 
 // fonksiyon definationları sonra olsa öncesinde fonksiyonu çağırmayı mümkün kılar
 // normalde header(.h) dosylarında  tanımlanır
-void addBook(struct Book books[], int *count);
+void addBook(struct Book books[], int *count); // count güncelleneceği için memorydeki adresi lazım
 void displayBooks(const struct Book books[], int count);
 void searchBook(const struct Book books[], int count, const char* title);
 void listAuthors(const struct Book books[], int count);
@@ -30,9 +30,10 @@ int main() {
     struct Book library[MAX_BOOKS]; // book tipinden bir array max_books boyutunda
     int bookCount = 0; // mevcut kitap sayısını tutmak için bir değişken 
 
-    int choice;
-    while (1) { // Infinite loop for menu
-        // Display menu
+    int choice; // değişkeni oluştur sonra kullanılacak
+
+    while (1) { // kontrol menüsü için sonsuz döngü
+        // menüyü yazdır 
         printf("\nLibrary Menu:\n");
         printf("1. Add Book\n");
         printf("2. Display Books\n");
@@ -40,11 +41,15 @@ int main() {
         printf("4. List All Authors\n");
         printf("5. Exit\n");
         printf("Enter your choice: ");
+
+        // seçimi oku ve choice değişkenine ata
+        // bu atama scandan alınan bilginin choice değişkeni adresine konmasını sağlar
         scanf("%d", &choice);
 
+        //choice üzerinde switch case kullanarak işlemleri çağır 
         switch (choice) {
             case 1:
-                addBook(library, &bookCount);
+                addBook(library, &bookCount); // eğer bookCount düz bir integer olarak verilerse işlem bookCounterın kendisini etkilemez, memorydeki adresi işlenmeli
                 break;
             case 2:
                 displayBooks(library, bookCount);
@@ -52,7 +57,7 @@ int main() {
             case 3: {
                 char searchTitle[50];
                 printf("Enter the title of the book to search: ");
-                scanf(" %[^\n]", searchTitle); // Read string with spaces
+                scanf(" %[^\n]", searchTitle); // new line \n gelene kadar okuma yap 
                 searchBook(library, bookCount, searchTitle);
                 break;
             }
