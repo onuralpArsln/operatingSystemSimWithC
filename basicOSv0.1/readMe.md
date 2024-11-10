@@ -51,7 +51,7 @@ typedef struct {
 |is_active|Processın aktif olup olmadığını gösteren bool|
 
 
-### 1.1 Memory Block
+### 1.2 Memory Block
 
 Bellek yeönetimi için kullanılan `MemoryBlock` yapısı
 
@@ -68,3 +68,111 @@ typedef struct {
 |start_address|Bellek bloğunun başlangıç adresi|
 |size |Bellek bloğunun boyutu (byte)|
 |is_allocated|Bloğun tahsis edilip edilmediğini gösteren bayrak|
+
+
+## 2. Alt Sistemler
+
+### 2.1 İşlemci Zamanlayıcı (CPU Scheduler)
+
+#### Temel Parametreler
+- `MAX_PROCESS`: Maksimum process sayısı (10)
+- `TIME_QUANTUM`: Her process için ayrılan zaman dilimi (4 birim)
+
+#### Ana Fonksiyonlar
+
+##### `void init_scheduler()`
+- Zamanlayıcıyı başlatır
+- Tüm processleri pasif duruma getirir
+
+##### `void add_process(int burst_time, int memory_req)`
+- Yeni process oluşturur
+- Parametreler:
+  - burst_time: Process çalışma süresi
+  - memory_req: İhtiyaç duyulan bellek miktarı
+
+##### `void run_scheduler()`
+- Round-Robin algoritmasını çalıştırır
+- Her processin TIME_QUANTUM kadar çalışmasını sağlar
+- Process tamamlandığında belleği serbest bırakır
+
+### 2.2 Bellek Yönetimi
+
+#### Temel Parametreler
+- `MEMORY_SIZE`: Toplam bellek boyutu (1024 byte)
+
+#### Ana Fonksiyonlar
+
+##### `void init_memory()`
+- Bellek sistemini başlatır
+- Tek bir boş blok oluşturur
+
+##### `int allocate_memory(int size)`
+- First-fit algoritması ile bellek tahsisi yapar
+- Parametreler:
+  - size: İstenen bellek miktarı
+- Dönüş:
+  - Başarılı ise başlangıç adresi
+  - Başarısız ise -1
+
+##### `void free_memory(int start, int size)`
+- Belleği serbest bırakır
+- Bitişik boş blokları birleştirir
+- Parametreler:
+  - start: Başlangıç adresi
+  - size: Serbest bırakılacak boyut
+
+### 2.3 Giriş/Çıkış (I/O) İşlemleri
+
+#### Ana Fonksiyonlar
+
+##### `void handle_io(int pid, char* operation)`
+- I/O işlemlerini simüle eder
+- Her I/O işlemi 2 birim zaman alır
+- Parametreler:
+  - pid: İşlem yapan process ID
+  - operation: İşlem türü (örn: "DISK_READ")
+
+## 3. Simülasyon Akışı
+
+1. Sistem başlatma:
+   ```c
+   init_scheduler();
+   init_memory();
+   ```
+
+2. Process oluşturma:
+   ```c
+   add_process(burst_time, memory_size);
+   ```
+
+3. Zamanlayıcı döngüsü:
+   - Her process TIME_QUANTUM süre çalışır
+   - I/O işlemleri kontrol edilir
+   - Tamamlanan processler temizlenir
+
+4. Simülasyon sonu:
+   - Tüm processler tamamlandığında döngü sonlanır
+   - Toplam geçen süre raporlanır
+
+## 4. Performans Metrikleri
+
+- **CPU Kullanımı**: current_time üzerinden takip edilir
+- **Process Tamamlanma Süresi**: burst_time + I/O süreleri
+- **Bellek Kullanımı**: Tahsis edilen toplam bellek miktarı
+
+## 5. Sınırlamalar ve Geliştirme Alanları
+
+1. **Zamanlayıcı**:
+   - Sadece Round-Robin algoritması
+   - Sabit time quantum
+   - Process önceliklendirme yok
+
+2. **Bellek Yönetimi**:
+   - Basit first-fit algoritması
+   - Bellek fragmantasyonu yönetimi yok
+   - Sanal bellek desteği yok
+
+3. **I/O İşlemleri**:
+   - Basit simülasyon
+   - Kuyruk yönetimi yok
+   - Device driver simülasyonu yok
