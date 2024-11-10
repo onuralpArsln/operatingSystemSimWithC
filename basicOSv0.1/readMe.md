@@ -27,7 +27,7 @@ Bu sistem şunları içeriyor
 ## 1. Temel Yapılar 
 --------
 
-1.1 Process
+### 1.1 Process
 
 Işlemler, `Process` isimli bir struct yapısı olarak ifade edilmektedir.
 
