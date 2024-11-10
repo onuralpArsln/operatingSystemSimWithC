@@ -170,19 +170,3 @@ Time Quantum çok kısa olursa sık geçişler sırasında geçiş dolaylı sür
 - **Process Tamamlanma Süresi**: burst_time + I/O süreleri
 - **Bellek Kullanımı**: Tahsis edilen toplam bellek miktarı
 
-## 5. Sınırlamalar ve Geliştirme Alanları
-
-1. **Zamanlayıcı**:
-   - Sadece Round-Robin algoritması
-   - Sabit time quantum
-   - Process önceliklendirme yok
-
-2. **Bellek Yönetimi**:
-   - Basit first-fit algoritması
-   - Bellek fragmantasyonu yönetimi yok
-   - Sanal bellek desteği yok
-
-3. **I/O İşlemleri**:
-   - Basit simülasyon
-   - Kuyruk yönetimi yok
-   - Device driver simülasyonu yok
