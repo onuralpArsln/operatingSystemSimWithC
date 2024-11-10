@@ -10,13 +10,15 @@ Bu repo, C dili ile yazılmış temel işletim sistemi simülasyonlarını içer
 
 ## Hedef
 
-Bu projedeki ana amaç, işletim sistemi kavramlarını öğrenmek ve C dili ile düşük seviyeli yazılımları geliştirme pratiği yapmaktır. Bu repo, sistem programlama ve işletim sistemleri derslerine yönelik bir kaynak olarak da kullanılabilir.
+Bu projede C dilini kullanarak basit bir işletim sistemi yapısını taklit etmeyi amaçlıyoruz. C dili ile, java ve c++ gibi dillere kıyasla daha low level bir çalışma yapma fırsatı buluyoruz. Proje her sürümde yeni özellikler kazanarak adım adım daha işlevsel ve biraz daha karışık hale gelmektedir. Böylece başlangıç seviyesinden daha karışık seviyelere yavaş yavaş geçilebilir.
+
 
 ## Proje Yapısı
 
 Projede aşağıdaki klasör ve dosyalar yer almaktadır:
 
-- `prerequites/`: C dili ve sistem programlama ile ilgili temel bilgiler ve rehber dokümanlar içerir. Bu klasörde, projeye başlamadan önce ihtiyaç duyabileceğiniz genel bilgiler ve örnek kodlar bulunur.
+- `prereq/`: C dili ve sistem programlama ile ilgili temel bilgiler ve rehber dokümanlar içerir. Bu klasörde, projeye başlamadan önce ihtiyaç duyabileceğiniz genel bilgiler ve örnek kodlar bulunur.
+
 - `basicOSvX.Y/`: Her simülasyonun bulunduğu klasör. "X.Y" sürüm numarasını ifade eder ve her sürümde işletim sistemine yeni özellikler eklenir. Her sürümde, işletim sisteminin yapı taşlarını oluşturan yeni özellikler ve modüller eklenir.
   - Sürümler:
     - `basicOSv0.1`: Başlangıç seviyesi işletim sistemi simülasyonu. Temel bellek yönetimi, görev zamanlayıcı (scheduler) gibi basit işlemleri içerir.
