@@ -19,7 +19,7 @@ Projede aşağıdaki klasör ve dosyalar yer almaktadır:
 
 - `prereq/`: C dili ve sistem programlama ile ilgili temel bilgiler ve rehber dokümanlar içerir. Bu klasörde, projeye başlamadan önce ihtiyaç duyabileceğiniz genel bilgiler ve örnek kodlar bulunur.
 
-- `basicOSvX.Y/`: Her simülasyonun bulunduğu klasör. "X.Y" sürüm numarasını ifade eder ve her sürümde işletim sistemine yeni özellikler eklenir. Her sürümde, işletim sisteminin yapı taşlarını oluşturan yeni özellikler ve modüller eklenir.
+- `basicOSvX.Y/`: Her simülasyonun bulunduğu klasör. "X.Y" sürüm numarasını ifade eder ve her sürümde işletim sistemine yeni özellikler eklenir. Her sürümde, işletim sisteminin yapı taşlarını oluşturan yeni özellikler ve modüller eklenir. Versiyonlar için detayları notlara versiyon klasörleri içindeki readme dosyalarına bakarak ulaşabilirsiniz.
   - Sürümler:
     - `basicOSv0.1`: Başlangıç seviyesi işletim sistemi simülasyonu. Temel bellek yönetimi, görev zamanlayıcı (scheduler) gibi basit işlemleri içerir.
     - `basicOSv0.2`: 
