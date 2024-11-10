@@ -74,33 +74,33 @@ int main() {
     }
 }
 
-// Function to add a book
+// yeni kitap ekleme fonksiyonu, countu değiştirmek için adresini al
 void addBook(struct Book books[], int *count) {
     if (*count >= MAX_BOOKS) { // Check if array is full
         printf("Library is full. Cannot add more books.\n");
         return;
     }
 
-    // Get book details from user
+    // print ve scan yaparak detayları al ve eklemeyi yap 
     printf("Enter book title: ");
-    scanf(" %[^\n]", books[*count].title); // Read string with spaces
+    scanf(" %[^\n]", books[*count].title); 
     printf("Enter author: ");
     scanf(" %[^\n]", books[*count].author);
     printf("Enter publication year: ");
     scanf("%d", &books[*count].year);
 
-    (*count)++; // Increment book count
+    (*count)++; // bir sonraki eklemeyi göstermek için book counterını arttır stack gibi
     printf("Book added successfully!\n");
 }
 
-// Function to display all books
+// kitapları gösterme 
 void displayBooks(const struct Book books[], int count) {
     if (count == 0) {
         printf("No books to display.\n");
         return;
     }
 
-    for (int i = 0; i < count; i++) { // Loop through array
+    for (int i = 0; i < count; i++) { // array boyunca loop
         printf("Book %d:\n", i + 1);
         printf("Title: %s\n", books[i].title);
         printf("Author: %s\n", books[i].author);
@@ -109,12 +109,12 @@ void displayBooks(const struct Book books[], int count) {
     }
 }
 
-// Function to search for a book by title
+// başlığa göre kitabı aramak
 void searchBook(const struct Book books[], int count, const char* title) {
     int found = 0;
 
-    for (int i = 0; i < count; i++) { // Loop through array to search
-        if (strcmp(books[i].title, title) == 0) { // Compare titles
+    for (int i = 0; i < count; i++) { 
+        if (strcmp(books[i].title, title) == 0) { // strcmp eğer stringler eşitse 0 döner alfabetik olarak hangisi önce geliyoru 1 ve -1 ile anlatır 
             printf("Book found:\n");
             printf("Title: %s\n", books[i].title);
             printf("Author: %s\n", books[i].author);
@@ -129,7 +129,7 @@ void searchBook(const struct Book books[], int count, const char* title) {
     }
 }
 
-// Function to list all authors
+// mevcut yazarları listele
 void listAuthors(const struct Book books[], int count) {
     if (count == 0) {
         printf("No authors to display.\n");
@@ -137,7 +137,7 @@ void listAuthors(const struct Book books[], int count) {
     }
 
     printf("Authors in the Library:\n");
-    for (int i = 0; i < count; i++) { // Loop through books array to get authors
+    for (int i = 0; i < count; i++) { 
         printf("%s\n", books[i].author);
     }
 }
