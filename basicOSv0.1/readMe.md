@@ -51,3 +51,20 @@ typedef struct {
 |is_active|Processın aktif olup olmadığını gösteren bool|
 
 
+### 1.1 Memory Block
+
+Bellek yeönetimi için kullanılan `MemoryBlock` yapısı
+
+```c
+typedef struct {
+    int start_address;    // Başlangıç adresi
+    int size;            // Blok boyutu
+    bool is_allocated;   // Tahsis durumu
+} MemoryBlock;
+
+```
+|Alan|Açıklama|
+|-----|--------|
+|start_address|Bellek bloğunun başlangıç adresi|
+|size |Bellek bloğunun boyutu (byte)|
+|is_allocated|Bloğun tahsis edilip edilmediğini gösteren bayrak|
