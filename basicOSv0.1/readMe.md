@@ -70,9 +70,19 @@ typedef struct {
 |is_allocated|Bloğun tahsis edilip edilmediğini gösteren bayrak|
 
 
-## 2. Alt Sistemler
+## 2. Sistemler
 
 ### 2.1 İşlemci Zamanlayıcı (CPU Scheduler)
+
+Gerçekte CPU Schedulding cpuyu hangi işlemin meşgul edeceğini ve bu sırada hangi işlemlerin durdurulacağını belirlemektir.
+Bunu yapmak için Round Robin algoritması kullanacağız.
+
+#### Round Robin (RR) Algoritması
+RR her işleme belli bir zaman verir. Bu zaman birimi Time Quantum olarak adlandırılır. Time Quantum süresi içinde işlemci işlemi tamamlayamazsa işlem kuyruğun sonuna atılır ve bşr sonraki işleme geçilir. Amaç gpu gücünün işlemler arası eşit dağıtımıdır.
+
+Time Quantum çok kısa olursa sık geçişler sırasında geçiş dolaylı süre kaybı olurken çok uzun Time Quantumlar ise işlemde çok zaman geçirilmesine ve sanki işlemlerin biri bitmeden diğerine geçilmeyen bir sisteme yakınsar.
+
+
 
 #### Temel Parametreler
 - `MAX_PROCESS`: Maksimum process sayısı (10)
